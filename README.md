@@ -1,15 +1,15 @@
 # Tarea: Taller mecánico
 ## Profesor: José Ramón Jiménez Reyes
-## Alumno: Ismael Rosas Ros
+## Alumno:
 
 Un nuevo cliente que posee un taller mecánico nos ha pedido que le hagamos una aplicación para gestionar su taller. El taller se dedica a realizar diferentes trabajos a los
-vehículos, aunque el cliente en este **primer sprint** quiere que nos centremos en los trabajos de revisión de un vehículo.
+vehículos, aunque el cliente en este **primer sptint** quiere que nos centremos en los trabajos de revisión de un vehículo.
 
 El taller cuenta con una serie de **clientes** de los que desea almacenar su **nombre**, **DNI** y **teléfono**. Un cliente podrá cambiar su nombre y su teléfono.
 
 Para los **vehículos** nos interesa almacenar su **marca**, **modelo** y **matrícula**, pero no almacenaremos su propietario ya que los trabajos se facturan al cliente que los trae al taller.
 
-Cuando un vehículo llega al taller, el mecánico encargado le registrará una **nueva revisión** en la que se anota el **cliente** que lo ha traído, el **vehículo** sobre el que se hará la revisión y la **fecha de inicio**, esto podremos anotarlo con posterioridad en nuestra aplicación. Cada trabajo deberá almacenar la fecha de llegada al taller, el número de horas dedicadas al mismo (que al llegar será 0 y que el mecánico irá aumentando según el tiempo que le dedique cada día), el precio del material que se va necesitando, que también cambiará con el trascurso de la revisión. 
+Cuando un vehículo llega al taller, el mecánico encargado le registrará una **nueva revisón** en la que se anota el **cliente** que lo ha traido, el **vehículo** sobre el que se hará la revisión y la **fecha de inicio**, esto podremos anotarlo con posterioridad en nuestra aplicación. Cada trabajo deberá almacenar la fecha de llegada al taller, el número de horas dedicadas al mismo (que al llegar será 0 y que el mecánico irá aumentando según el tiempo que le dedique cada día), el precio del material que se va necesitando, que también cambiará con el trascurso de la revisión. 
 
 Cuando se termine la revisión, se anota la fecha de finalización y ya no se podrá cambiar el número de horas de dicho trabajo, ni el precio del material.
 
@@ -56,13 +56,13 @@ Para ello te muestro un diagrama de clases para el mismo y poco a poco te iré e
 2. Crea los métodos de verificación de los atributos, teniendo en cuenta que la **marca** puede seguir alguno de los siguientes patrones: Seat, Land Rover, KIA, Rolls-Royce, SsangYong. El **modelo** simplemente no debe estar en blanco. La matrícula tendrá el formato de una matrícula española moderna (1111BBB). Debes crear las constantes para las expresiones regulares que luego utilizarás en los métodos de modificación. Los métodos de modificación lanzarán las excepciones adecuadas en caso de que el valor que se pretenda asignar al atributo no sea adecuado.
 3. Crea el **constructor canónico** que hará uso de los métodos de verificación.
 4. Crea el **método de clase** que se indica en el diagrama, que dada una matrícula correcta nos devuelva un vehículo válido con dicha matrícula y que será utilizado en las futuras **búsquedas**.
-5. Un vehículo será igual a otro si su matrícula es la misma. Basándote en ello crea los métodos `equals` y `hashCode`.
+5. Un vehívculo será igual a otro si su matrícula es la misma. Basándote en ello crea los métodos `equals` y `hashCode`.
 6. Crea el método `toString` que devuelva la cadena que esperan los tests.
 7. Comprueba que la **clase pasa los test** para la misma y cuando lo haga realiza un **commit**.
 
 #### Revision
 1. Crea la clase `Revision` con los atributos y visibilidad adecuados.
-2. Crea los métodos de acceso y modificación de cada atributo, teniendo en cuenta que es posible registrar una revisión pasada (nuestro cliente a veces apunta las revisiones y luego los pasa a la aplicación). La fecha de inicio de la revisión no puede ser posterior a hoy. La fecha de fin no puede ser igual o anterior a la fecha de inicio y tampoco puede ser posterior a hoy. Los métodos de modificación lanzarán las excepciones adecuadas en caso de que el valor que se pretenda asignar al atributo no sea adecuado.
+2. Crea los métodos de acceso y modificación de cada atributo, teniendo en cuenta que es posible registrar una revisión pasada (nuestro cliente a veces apunta las revisiones y luego los pasa a la aplicación). La fecha de inicio de la revisón no puede ser posterior a hoy. La fecha de fin no puede ser igual o anterior a la fecha de inicio y tampoco puede ser posterior a hoy. Los métodos de modificación lanzarán las excepciones adecuadas en caso de que el valor que se pretenda asignar al atributo no sea adecuado.
 3. Crea el **constructor con parámetros** que hará uso de los métodos de modificación.
 4. Crea el **constructor copia** que creará una copia y en el caso del cliente creará una nueva instancia llamando a su constructor copia.
 5. Crea los métodos `anadirHoras` y `anadirPrecioMaterial` que comprueben si los parámetros son correctos y laa añada al atributo adecuado.
@@ -77,7 +77,7 @@ Para ello te muestro un diagrama de clases para el mismo y poco a poco te iré e
 2. Crea el **constructor por defecto** que simplemente creará la lista.
 3. Crea el método `get` que devolverá una nueva lista con los mismos elementos (no debe crear nuevas instancias).
 4. Crea el método `insertar` que añadirá un cliente a la lista si éste no es nulo y no existe aún en la lista.
-5. Crea el método `modificar` que permitirá cambiar el nombre o el teléfono (si estos parámetros no son nulos ni blancos) de un cliente existente y si no lanzará la correspondiente excepción. Devolverá el cliente modificado.
+5. Crea el método `modificar` que permitirá cambiar el nombre o el teléfono (si estos parámetros no son nulos ni blancos) de un cliente existente y si no lanzará la correspondiente excepción. Devolverá `true` o  `false` dependiendo de si lo ha modificado o no.
 6. Crea el método `buscar` que devolverá el cliente si este se encuentra en la lista y `null` en caso contrario.
 7. Crea el método `borrar` que borrará el cliente si este existe en la lista o lanzará una excepción en caso contrario.
 8. Comprueba que la **clase pasa los test** para la misma y cuando lo haga realiza un **commit**.
@@ -99,10 +99,10 @@ Para ello te muestro un diagrama de clases para el mismo y poco a poco te iré e
 5. Crea el método `get` para un vehículo dado, que devolverá una nueva lista con las revisiones para dicho vehículo (no debe crear nuevas instancias).
 6. Crea el método `insertar` que añadirá una revisión a la lista si esta no es nula y pasa la comprobación anterior.
 7. Crea el método `comprobarRevision` que comprobará que en la lista no existe ninguna revisión sin cerrar ni para el cliente ni para el vehículo y que tampoco hay una revisión cerrada, del cliente o del vehículo, con fecha de fin posterior a la fecha en la que se pretende comenzar la revisión.
-8. Crea el método `getRevision` que comprobará que la revisión no es nula y devolverá la revisión encontrada en la lista o lanzará una excepción. Este método será utilizado en métodos posteriores.
-9. Crea el método `anadirHoras` que le añadirá horas a la revisión encontrada utilizando el método anterior. Devolverá la revisión modificada.
-10. Crea el método `anadirPrecioMaterial` que añadirá precio del material a la revisión encontrada utilizando el método anterior. Devolverá la revisión modificada.
-11. Crea el método `cerrar` que cerrará (asignará la fecha de fin) a la revisión encontrada utilizando el método anterior. Devolverá la revisión modificada.
+8. Crea el método `getRevision` que comprobará que la revisión no es nula y devol verá la revisión encontrada en la lista o lanzará una excepción. Este método será utilizado en métodos posteriores.
+9. Crea el método `anadirHoras` que le añadirá horas a la revisión encontrada utilizando el método anterior.
+10. Crea el método `anadirPrecioMaterial` que añadirá precio del material a la revisión encontrada utilizando el método anterior. 
+11. Crea el método `cerrar` que cerrará (asignará la fecha de fin) a la revisión encontrada utilizando el método anteiror.
 12. Crea el método `buscar` que devolverá la revisión si esta se encuentra en la lista y null en caso contrario.
 13. Crea el método `borrar` que borrará la revisión si esta existe en la lista o lanzará una excepción en caso contrario.
 14. Comprueba que la **clase pasa los test** para la misma y cuando lo haga realiza un **commit**.
