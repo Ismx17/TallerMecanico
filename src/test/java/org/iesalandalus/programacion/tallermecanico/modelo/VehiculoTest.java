@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.tallermecanico;
+package org.iesalandalus.programacion.tallermecanico.modelo;
 
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
 import org.junit.jupiter.api.Test;
