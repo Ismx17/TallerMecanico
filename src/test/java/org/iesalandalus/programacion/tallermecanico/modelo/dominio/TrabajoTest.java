@@ -100,7 +100,7 @@ class TrabajoTest {
 
     @Test
     void constructorTrabajoValidoCopiaTrabajoCorrectamente() {
-        assertDoesNotThrow(() -> revision.anadirHoras(5));
+        assertDoesNotThrow(() -> revision.añadirHoras(5));
         assertDoesNotThrow(() -> revision.cerrar(hoy));
         Revision copiaRevision = new Revision(revision);
         assertNotSame(cliente, copiaRevision.getCliente());
@@ -109,7 +109,7 @@ class TrabajoTest {
         assertEquals(hoy, copiaRevision.getFechaFin());
         assertEquals(5, copiaRevision.getHoras());
         Mecanico mecanico = new Mecanico(cliente, vehiculo, ayer);
-        assertDoesNotThrow(() -> mecanico.anadirHoras(5));
+        assertDoesNotThrow(() -> mecanico.añadirHoras(5));
         assertDoesNotThrow(() -> mecanico.anadirPrecioMaterial(100));
         assertDoesNotThrow(() -> mecanico.cerrar(hoy));
         Mecanico copiaMecanico = new Mecanico(mecanico);
@@ -129,7 +129,7 @@ class TrabajoTest {
 
     @Test
     void copiarTrabajoValidoCopiaTrabajoCorrectamente() {
-        assertDoesNotThrow(() -> revision.anadirHoras(5));
+        assertDoesNotThrow(() -> revision.añadirHoras(5));
         assertDoesNotThrow(() -> revision.cerrar(hoy));
         Revision copiaRevision = (Revision) Trabajo.copiar(revision);
         assertNotSame(cliente, copiaRevision.getCliente());
@@ -138,7 +138,7 @@ class TrabajoTest {
         assertEquals(hoy, copiaRevision.getFechaFin());
         assertEquals(5, copiaRevision.getHoras());
         Mecanico mecanico = new Mecanico(cliente, vehiculo, ayer);
-        assertDoesNotThrow(() -> mecanico.anadirHoras(5));
+        assertDoesNotThrow(() -> mecanico.añadirHoras(5));
         assertDoesNotThrow(() -> mecanico.anadirPrecioMaterial(100));
         assertDoesNotThrow(() -> mecanico.cerrar(hoy));
         Mecanico copiaMecanico = (Mecanico) Trabajo.copiar(mecanico);
@@ -170,22 +170,22 @@ class TrabajoTest {
 
     @Test
     void anadirHorasHorasValidasSumaHorasCorrectamente() {
-        assertDoesNotThrow(() -> revision.anadirHoras(5));
+        assertDoesNotThrow(() -> revision.añadirHoras(5));
         assertEquals(5, revision.getHoras());
-        assertDoesNotThrow(() -> revision.anadirHoras(5));
+        assertDoesNotThrow(() -> revision.añadirHoras(5));
         assertEquals(10, revision.getHoras());
     }
 
     @Test
     void anadirHorasHorasNoValidasLanzaExcepcion() {
-        IllegalArgumentException iae = assertThrows(IllegalArgumentException.class, () -> revision.anadirHoras(0));
+        IllegalArgumentException iae = assertThrows(IllegalArgumentException.class, () -> revision.añadirHoras(0));
         assertEquals("Las horas a añadir deben ser mayores que cero.", iae.getMessage());
     }
 
     @Test
     void anadirHorasTrabajoCerradoLanzaExcepcion() {
         assertDoesNotThrow(() -> revision.cerrar(hoy));
-        TallerMecanicoExcepcion tme = assertThrows(TallerMecanicoExcepcion.class, () -> revision.anadirHoras(5));
+        TallerMecanicoExcepcion tme = assertThrows(TallerMecanicoExcepcion.class, () -> revision.añadirHoras(5));
         assertEquals("No se puede añadir horas, ya que el trabajo está cerrado.", tme.getMessage());
     }
 

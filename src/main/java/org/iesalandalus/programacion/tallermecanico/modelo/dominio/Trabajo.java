@@ -33,7 +33,7 @@ public abstract class Trabajo {
         horas = trabajo.horas;
     }
 
-    public Trabajo copiar(Trabajo trabajo) {
+    public static Trabajo copiar(Trabajo trabajo) {
         Objects.requireNonNull(trabajo, "El trabajo no puede ser nulo.");
         Trabajo trabajoCopia = null;
         if (trabajo instanceof Revision revision) {
@@ -44,7 +44,7 @@ public abstract class Trabajo {
         return trabajoCopia;
     }
 
-    public Trabajo get(Vehiculo vehiculo) {
+    public static Trabajo get(Vehiculo vehiculo) {
         Objects.requireNonNull(vehiculo, "El vehiculo no puede ser nulo.");
         return new Revision(Cliente.get("11111111H"), vehiculo, LocalDate.now());
     }
